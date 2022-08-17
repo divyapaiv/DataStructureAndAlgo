@@ -9,43 +9,41 @@ class MergeSort {
 
       mergeSort(a, p, mid, 0);
       mergeSort(a, mid + 1, r, 1);
-      merge(a,p,mid,r);
+      merge(a, p, mid, r);
     }
-  
+    System.out.println("Final Output");
+    printOutput(a);
   }
-
-  
 
   public static void merge(Integer[] a, int p, int q, int r) {
-/*  range-1  [p..q]
-    range-2  [q+1..r] */
-    int range_1= q-p+1;
-    int range_2= r-q; 
-    int i=0,j=0,k=p;
+    /*
+     * range-1 [p..q]
+     * range-2 [q+1..r]
+     */
+    int range_1 = q - p + 1;
+    int range_2 = r - q;
+    int i = 0, j = 0, k = p;
     Integer left_arr[] = new Integer[range_1];
     Integer right_arr[] = new Integer[range_2];
-    for(int m=0;m<range_1;m++)
-      left_arr[i] = a[p+m];
-     for(int m=0;m<range_2;m++)
-      right_arr[i] = a[q+1 +m];
-    printOutput(left_arr);
-    printOutput(right_arr);
-    /*
-while(i<range_1 && j<range_2)
-      {
-        if(left_arr[i]<right_arr[j]){
-          a[k++] =left_arr[i++];
+    for (int m = 0; m < range_1; m++)
+      left_arr[m] = a[p + m];
+    for (int m = 0; m < range_2; m++)
+      right_arr[m] = a[q + 1 + m];
+
+    while (i < range_1 && j < range_2) {
+      if (left_arr[i] < right_arr[j]) {
+        a[k++] = left_arr[i++];
+      } else {
+        a[k++] = right_arr[j++];
       }
-        else{
-          a[k++] = right_arr[j++];
-        }
-      for(int m=i;m<range_1;m++)
-         a[k++] = left_arr[m++];
-     for(int m=j;m<range_2;m++)
-         a[k++] = right_arr[m++];
-    
-}*/
+    }
+    for (int m = i; m < range_1; m++)
+      a[k++] = left_arr[m];
+    for (int m = j; m < range_2; m++)
+      a[k++] = right_arr[m];
+
   }
+
   public static void printOutput(Integer arr[]) {
     System.out.println("\nItems in the list");
     for (int i : arr) {
@@ -53,8 +51,6 @@ while(i<range_1 && j<range_2)
     }
   }
 }
-    
-
 
 class SortAlgo {
   Integer item[] = new Integer[15];
@@ -144,11 +140,11 @@ class SortAlgo {
         obj.selectionSort();
         break;
       case 3:
-        obj.insertionSort();  
-        break;  
+        obj.insertionSort();
+        break;
       case 4:
-        MergeSort.mergeSort(arr, 0, arr.length-1, 2);
-        MergeSort.printOutput(arr);
+        MergeSort.mergeSort(arr, 0, arr.length - 1, 2);
+        // MergeSort.printOutput(arr);
         break;
       default:
         System.out.println("No options selected");
