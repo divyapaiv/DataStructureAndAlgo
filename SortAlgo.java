@@ -1,11 +1,39 @@
 import java.io.*;
 import java.util.*;
 
+class QuickSort {
+  public static void quickSort(Integer[] a, int p, int r, int debug) {
+    if (p < r) {
+      int pivot = getPivot(a, p, r);
+      quickSort(a, p, pivot, 1);
+      quickSort(a, pivot + 1, r, 2);
+    }
+
+  }
+
+  public static int getPivot(Integer[] a, int low, int high) {
+    int key = a[low];
+    int range_end = high - 1;
+    for (int j = low + 1; j < range_end; j++) {
+
+      if (a[j] < key) {
+        int t = a[low];
+        a[low] = a[j];
+        a[j] = t;
+        low++;
+
+      }
+
+    }
+    return 0;
+  }
+}
+
 class MergeSort {
   public static void mergeSort(Integer[] a, int p, int r, int debug) {
     System.out.println(p + " " + r + " " + debug);
     if (p < r) {
-      int mid = p + (r - p) / 2;
+      int mid = (r + p) / 2;
 
       mergeSort(a, p, mid, 0);
       mergeSort(a, mid + 1, r, 1);
