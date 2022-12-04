@@ -20,6 +20,25 @@ Constraints:
 0 <= s.length <= 100
 0 <= t.length <= 104
 s and t consist only of lowercase English letters.
+
+recursive function 
+if(m==0 or n==0) 
+   return 0 
+if(s[m]==t[n])
+  return(1+fun(m-1,n-1,s,t))
+else 
+ return(fun(m,n-1,s,t))
+ ===============================
+ Conversion to dp 
+ ===============================
+ 
+ i=0 and j=0 d[i][0] == dp[0][j] == 0
+ if(s[i-1] == t[j-1]) 
+   dp[i][j] = 1+dp[i-1][j-1];
+  else
+   dp[i][j] = dp[i-1][j];
+ 
+ 
 */
 
 class Solution {
