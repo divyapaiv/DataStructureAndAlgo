@@ -1,3 +1,4 @@
+/* O(N) O(1)*/
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
          int ele1=-1,ele2=-1,cnt=0,cnt2=0;
