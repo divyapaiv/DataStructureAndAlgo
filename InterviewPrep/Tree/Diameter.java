@@ -1,10 +1,11 @@
-/* O(N)*/
+
 class Solution {
     // Function to return the diameter of a Binary Tree.
-    int curmax;
+   int ans;
     public Solution(){
-        curmax=Integer.MIN_VALUE;
+       ans=0;
     }
+    /* 
     int diameter(Node root) {
        if(root==null) return 0;
         int d1=diameter(root.left);
@@ -18,5 +19,24 @@ class Solution {
         if(root==null) return 0;
         return (1+Math.max(getHeight(root.left,res),getHeight(root.right,res)));
         
+     }O(N*N)*/
+    
+ 
+    /*O(N)*/
+    int getHeight(Node root){
+        if(root==null) return 0;
+          if(root==null) return 0;
+            int lh=getHeight(root.left);
+            int rh=getHeight(root.right);
+            ans=Math.max(ans,lh+rh+1);
+            return (1+Math.max(lh,rh));
+        
      }
+    int diameter(Node root) {
+        getHeight(root);
+      return ans;
+        
+    }
+    
+    
 }
